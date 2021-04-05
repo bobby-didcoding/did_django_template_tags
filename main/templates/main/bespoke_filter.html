@@ -1,0 +1,68 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load did_tags %}
+
+
+{% block extend_head %}
+
+{% endblock %}
+
+{% block extend_nav %} 
+
+<ul class="sidenav">
+  <li><a href="{% url 'main:home' %}">Demo Django Template Tags</a></li>
+  <li><a href="{% url 'main:filter' %}">Demo Django Template Filters</a></li>
+  <li><a class="active" href="{% url 'main:bespoke-filter' %}">Demo Django Bespoke Template Filters</a></li>
+</ul>
+
+{% endblock %}
+
+{% block content %}
+
+<h3>Django Bespoke Template Tag Demo - Home</h3>
+
+<div class="container">
+
+	<table>
+	    <thead>
+	      <tr>
+	        <th>Field</th>
+	        <th>Before Filter</th>
+	        <th>After Filter</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	    	
+		    <tr>
+		    	<td>Price 1</td>
+		    	<td>{{price1}}</td>
+		    	<td>{{price1|price}}</td>
+		    </tr>
+			<tr>
+		    	<td>Price 2</td>
+		    	<td>{{price2}}</td>
+		    	<td>{{price2|price}}</td>
+		    </tr>
+
+		    <tr>
+		    	<td>Price 3</td>
+		    	<td>{{price3}}</td>
+		    	<td>{{price3|price}}</td>
+		    </tr>
+
+		</tbody>
+	</table>
+
+</div>
+
+{% endblock %}
+
+{% block extend_footer %}
+
+
+<script type="text/javascript">
+
+</script>
+
+
+{% endblock %}

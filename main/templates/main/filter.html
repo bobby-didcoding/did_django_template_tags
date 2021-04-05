@@ -1,0 +1,195 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load humanize %}
+
+
+{% block extend_head %}
+
+{% endblock %}
+
+{% block extend_nav %} 
+
+<ul class="sidenav">
+  <li><a href="{% url 'main:home' %}">Demo Django Template Tags</a></li>
+  <li><a class="active" href="{% url 'main:filter' %}">Demo Django Template Filters</a></li>
+  <li><a href="{% url 'main:bespoke-filter' %}">Demo Django Bespoke Template Filters</a></li>
+</ul>
+
+{% endblock %}
+
+{% block content %}
+
+<h3>Django Template Tag Demo - Home</h3>
+
+<div class="container">
+
+	<table>
+	    <thead>
+	      <tr>
+	        <th>Field</th>
+	        <th>Before Filter</th>
+	        <th>After Filter</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	    	
+		    <tr>
+		    	<td>Add</td>
+		    	<td>{{add}}</td>
+		    	<td>{{add|add:2}}</td>
+		    </tr>
+
+		    <tr>
+		    	<td>Addslashes</td>
+		    	<td>{{addslashes}}</td>
+		    	<td>{{addslashes|addslashes}}</td>
+		    </tr>
+
+		    <tr>
+		    	<td>Capfirst</td>
+		    	<td>{{capfirst}}</td>
+		    	<td>{{capfirst|capfirst}}</td>
+		    </tr>
+
+		    <tr>
+		    	<td>Center</td>
+		    	<td>{{center}}</td>
+		    	<td>{{center|center:40}}</td>
+		    </tr>
+
+		    <tr>
+		    	<td>Cut</td>
+		    	<td>{{cut}}</td>
+		    	<td>{{cut|cut:" "}}</td>
+		    </tr>
+
+		    <tr>
+		    	<td>Date</td>
+		    	<td>{{date}}</td>
+		    	<td>{{date|date:"D d M Y"}}</td>
+		    </tr>
+
+		    <tr>
+		    	<td>Default</td>
+		    	<td>{{default}}</td>
+		    	<td>{{default|default:"Nowt"}}</td>
+		    </tr>
+
+		    <tr>
+		    	<td>Default</td>
+		    	<td>{{default_if_none}}</td>
+		    	<td>{{default_if_none|default_if_none:"Still nowt"}}</td>
+		    </tr>
+
+		    <tr>
+		    	<td>Dictsort</td>
+		    	<td>{{dictsort}}</td>
+		    	<td>{{dictsort|dictsort:"age"}}</td>
+		    </tr>
+		    <tr>
+		    	<td>Dictsortreversed</td>
+		    	<td>{{dictsortreversed}}</td>
+		    	<td>{{dictsortreversed|dictsortreversed:"age"}}</td>
+		    </tr>
+
+		    <tr>
+		    	<td>Divisibleby</td>
+		    	<td>{{divisibleby}}</td>
+		    	<td>{{divisibleby|divisibleby:"7"}}</td>
+		    </tr>
+
+		    <tr>
+		    	<td>Filesizeformat</td>
+		    	<td>{{filesizeformat}}</td>
+		    	<td>{{filesizeformat|filesizeformat}}</td>
+		    </tr>
+
+		    <tr>
+		    	<td>First</td>
+		    	<td>{{first}}</td>
+		    	<td>{{first|first}}</td>
+		    </tr>
+
+		    <tr>
+		    	<td>Floatformat</td>
+		    	<td>{{floatformat}}</td>
+		    	<td>{{floatformat|floatformat}}</td>
+		    </tr>
+
+		    <tr>
+		    	<td>Get_digit</td>
+		    	<td>{{get_digit}}</td>
+		    	<td>{{get_digit|get_digit:"2"}}</td>
+		    </tr>
+
+		    <tr>
+		    	<td>Floatformat</td>
+		    	<td>{{floatformat}}</td>
+		    	<td>{{floatformat|floatformat}}</td>
+		    </tr>
+
+		    <tr>
+		    	<td>Join</td>
+		    	<td>{{join}}</td>
+		    	<td>{{join|join:"-"}}</td>
+		    </tr>
+
+		    <tr>
+		    	<td>Last</td>
+		    	<td>{{last}}</td>
+		    	<td>{{last|last}}</td>
+		    </tr>
+
+		    <tr>
+		    	<td>Length</td>
+		    	<td>{{length}}</td>
+		    	<td>{{length|length}}</td>
+		    </tr>
+
+		    <tr>
+		    	<td>Length_is</td>
+		    	<td>{{length_is}}</td>
+		    	<td>{{length|length_is:"3"}}</td>
+		    </tr>
+
+		    <tr>
+		    	<td>Lower</td>
+		    	<td>{{lower}}</td>
+		    	<td>{{lower|lower}}</td>
+		    </tr>
+
+		    <tr>
+		    	<td>Apnumber (Humanize)</td>
+		    	<td>{{apnumber}}</td>
+		    	<td>{{apnumber|apnumber}}</td>
+		    </tr>
+
+		    <tr>
+		    	<td>Intcomma (Humanize)</td>
+		    	<td>{{intcomma}}</td>
+		    	<td>{{intcomma|intcomma}}</td>
+		    </tr>
+
+		    <tr>
+		    	<td>Naturalday (Humanize)</td>
+		    	<td>{{naturalday}}</td>
+		    	<td>{{naturalday|naturalday}}</td>
+		    </tr>
+
+
+		</tbody>
+	</table>
+
+</div>
+
+{% endblock %}
+
+{% block extend_footer %}
+
+
+<script type="text/javascript">
+
+</script>
+
+
+{% endblock %}

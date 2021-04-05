@@ -1,0 +1,150 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block extend_head %}
+
+{% endblock %}
+
+{% block extend_nav %} 
+
+<ul class="sidenav">
+  <li><a class="active" href="{% url 'main:home' %}">Demo Django Template Tags</a></li>
+  <li><a href="{% url 'main:filter' %}">Demo Django Template Filters</a></li>
+  <li><a href="{% url 'main:bespoke-filter' %}">Demo Django Bespoke Template Filters</a></li>
+</ul>
+
+{% endblock %}
+
+
+{% block content %}
+
+<h3>Django Template Tag Demo - Home</h3>
+
+<div class="container">
+
+
+	{% comment "Optional note" %}
+    <p>Commented out text with {{ create_date|date:"c" }}</p>
+	{% endcomment %}
+
+	<h4>Tag - Cycle</h4>
+	<table>
+	    <thead>
+	      <tr>
+	        <th>Field</th>
+	        <th>Data</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+			{% for c in cycle_list %}
+		    <tr>
+		    	<td>{% cycle 'row1' 'row2' %}</td>
+		    	<td>{{c}}</td>
+		    </tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<br>
+
+	<h4>Tag - Firstof</h4>
+    <input type="text" readonly id="id-first-of" value="{% firstof firstof_1 firstof_2 firstof_3 %}">
+
+    <br>
+
+    <h4>Tag - For (with list)</h4>
+
+    {% for f in for_list %}
+    	<address>{{f}} </address>
+    {% endfor %}
+
+    <h4>Tag - For (with dict)</h4>
+
+    {% for key, value in for_dict.items %}
+    	<address>{{key}}: {{value}} </address>
+    {% endfor %}
+
+    <h4>Tag - If</h4>
+
+    {% if if_list %}
+    	{% for i in if_list %}
+	    <input type="text" readonly value="{{i}}">
+	    {% endfor %}
+    {% else %}
+
+    <input type="text" readonly value="This is displayed">
+
+    {% endif %}
+
+    <h4>Tag - Input</h4>
+    {% include 'main/partials/input.html' %}
+
+    <h4>Tag - Lorem (1 x paragraph)</h4>
+
+    {% lorem 1 p %}
+
+    <h4>Tag - Now</h4>
+
+    <p>All rights reserved, &copy{% now "Y" %} <a href="javascript:void(0)">Didcoding</a></p>
+
+    <h4>Tag - Regroup</h4>
+
+    {% regroup regroup_list by country as country_list %}
+
+    <ul>
+	{% for country in country_list %}
+	    <li>{{ country.grouper }}
+		    <ul>
+		        {% for n in country.list %}
+		          <li>{{ n.name }}: {{ n.age }}</li>
+		        {% endfor %}
+		    </ul>
+	    </li>
+	{% endfor %}
+	</ul>
+
+	<h4>Tag - Reset Cycle</h4>
+
+	{% regroup reset_cycle_list by family as family_list %}
+
+	{% for family in family_list %}
+		<li>{{ family.grouper }}
+			<ul>
+		        {% for n in family.list %}
+		          <li>{{ n.name }}: {% cycle 'Dead' 'Alive' %}</li>
+		        {% endfor %}
+		        {% resetcycle %}
+		    </ul>
+	    </li>
+	{% endfor %}
+
+	<h4>Tag - With (and filter)</h4>
+	{% with families=family_list.grouper.count %}
+	<input type="text" readonly id="id-first-of" value="{{family_list|length}} Westeros families">
+	{% endwith %}
+	
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+{% endblock %}
+
+{% block extend_footer %}
+
+
+<script type="text/javascript">
+
+</script>
+
+
+{% endblock %}
