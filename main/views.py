@@ -34,7 +34,7 @@ def index(request):
 	# reset_cycle_list = sorted(reset_cycle_list, key=lambda k: k['family'])
 	
 	context = {
-		"cycle_list": ["This", "Is", "Cycle"],
+		"cycle_list": ["This", "Is", "Cycle", "example"],
 		"firstof_1": False,
 		"firstof_2": False,
 		"firstof_3": "This will be displayed",
@@ -86,7 +86,7 @@ def filter(request):
 		"length": ["This", "Is", "First"],
 		"length_is": ["This", "Is", "First"],
 		"lower": "HELLO",
-		"apnumber":321,
+		"apnumber":32156,
 		"intcomma":987654321,
 		"naturalday": timezone.now()	
 	}
